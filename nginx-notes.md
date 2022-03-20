@@ -1,5 +1,8 @@
 https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
+https://linuxize.com/post/how-to-set-up-nginx-server-blocks-on-ubuntu-18-04/
+
+
 # install nginx on main vm
 
 https://ubuntu.com/tutorials/install-and-configure-nginx#2-installing-nginx
