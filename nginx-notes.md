@@ -15,8 +15,8 @@ sudo apt install python3-certbot-nginx
 
 
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     root /var/www/html;
     server_name test.dmtools.info;
 }
