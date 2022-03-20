@@ -104,6 +104,7 @@ server {
 }
 
 
+
 Congratulations! Your certificate and chain have been saved at:
    /etc/letsencrypt/live/test.dmtools.info/fullchain.pem
    Your key file has been saved at:
@@ -114,4 +115,11 @@ Congratulations! Your certificate and chain have been saved at:
    renew *all* of your certificates, run "certbot renew"
 
 
+
+# useful system commands
+
+        sudo systemctl stop nginx
+        sudo systemctl start nginx
+        sudo systemctl status nginx
+        
 
