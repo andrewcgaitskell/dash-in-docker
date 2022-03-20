@@ -21,8 +21,11 @@ server {
     server_name test.dmtools.info;
 }
 
+sudo ln -s /etc/nginx/sites-available/test.dmtools.info /etc/nginx/sites-enabled/
 
 sudo certbot --nginx -d test.dmtools.info
+
+
 
 Congratulations! Your certificate and chain have been saved at:
    /etc/letsencrypt/live/test.dmtools.info/fullchain.pem
@@ -34,5 +37,4 @@ Congratulations! Your certificate and chain have been saved at:
    renew *all* of your certificates, run "certbot renew"
 
 
-sudo ln -s /etc/nginx/sites-available/test.dmtools.info /etc/nginx/sites-enabled/
 
