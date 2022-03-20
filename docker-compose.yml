@@ -14,7 +14,7 @@ services:
 
     certbot:
         image: certbot/certbot:latest
-        command: certonly --webroot --webroot-path=/var/www/certbot --email andrew@gaitskell.com --agree-tos --no-eff-email -d test.dmtools.info
+        command: certbot certonly --webroot --webroot-path=/var/www/certbot --email andrew@gaitskell.com --agree-tos --no-eff-email -d test.dmtools.info
         volumes:
             - ./data/certbot/conf:/etc/letsencrypt
             - ./data/certbot/logs:/var/log/letsencrypt
