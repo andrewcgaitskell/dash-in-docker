@@ -118,6 +118,9 @@ Congratulations! Your certificate and chain have been saved at:
 
 # useful system commands
 
+        sudo nginx -t
+        sudo nginx -s reload
+
         sudo systemctl stop nginx
         sudo systemctl start nginx
         sudo systemctl status nginx
