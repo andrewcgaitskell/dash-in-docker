@@ -25,6 +25,33 @@ sudo ln -s /etc/nginx/sites-available/test.dmtools.info /etc/nginx/sites-enabled
 
 sudo certbot --nginx -d test.dmtools.info
 
+## after certbot
+
+server {
+    root /var/www/html;
+    server_name test.dmtools.info;
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/test.dmtools.info/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/test.dmtools.info/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = test.dmtools.info) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+    server_name test.dmtools.info;
+    return 404; # managed by Certbot
+
+
+}
 
 
 Congratulations! Your certificate and chain have been saved at:
