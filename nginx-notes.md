@@ -32,3 +32,7 @@ Congratulations! Your certificate and chain have been saved at:
    tweaked version of this certificate in the future, simply run
    certbot again with the "certonly" option. To non-interactively
    renew *all* of your certificates, run "certbot renew"
+
+
+sudo ln -s /etc/nginx/sites-available/test.dmtools.info /etc/nginx/sites-enabled/
+
