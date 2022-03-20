@@ -1,5 +1,5 @@
 
-Resisting Installing Docker on Local Machine
+# Resisting Installing Docker on Local Machine
 
 I did not want to develop and deploy containers on my local Linux or Mac machine.
 
@@ -14,8 +14,20 @@ https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host
     sudo apt update
     sudo apt upgrade
 
+# Add SSH key to VM using Console
+
+
 
 https://docs.docker.com/engine/install/ubuntu/#prerequisites
+
+https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+# Install nginx
+
 
 https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/
 
