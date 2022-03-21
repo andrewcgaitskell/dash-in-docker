@@ -17,23 +17,23 @@ python3 --version
 sudo apt install python3-certbot-nginx
 
 
-server {
-    listen 80;
-    listen [::]:80;
+        server {
+            listen 80;
+            listen [::]:80;
 
-    root /var/www/test.dmtools.info/public_html;
+            root /var/www/test.dmtools.info/public_html;
 
-    index index.html;
+            index index.html;
 
-    server_name test.dmtools.info;
+            server_name test.dmtools.info;
 
-    access_log /var/log/nginx/test.dmtools.info.access.log;
-    error_log /var/log/nginx/test.dmtools.info.error.log;
+            access_log /var/log/nginx/test.dmtools.info.access.log;
+            error_log /var/log/nginx/test.dmtools.info.error.log;
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
+            location / {
+                try_files $uri $uri/ =404;
+            }
+        }
 
 
 sudo ln -s /etc/nginx/sites-available/test.dmtools.info /etc/nginx/sites-enabled/
