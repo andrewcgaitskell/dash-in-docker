@@ -42,69 +42,32 @@ sudo certbot --nginx -d test.dmtools.info
 
 ## after certbot
 
+        server {
+            listen 80;
+            listen [::]:80;
 
-server {
-    listen 80;
-    listen [::]:80;
+            root /var/www/test.dmtools.info/public_html;
 
-    root /var/www/test.dmtools.info/public_html;
+            index index.html;
 
-    index index.html;
+            server_name test.dmtools.info;
 
-    server_name test.dmtools.info;
+            listen [::]:443 ssl ipv6only=on; # managed by Certbot
+            listen 443 ssl; # managed by Certbot
+            ssl_certificate /etc/letsencrypt/live/test.dmtools.info/fullchain.pem; # managed by Certbot
+            ssl_certificate_key /etc/letsencrypt/live/test.dmtools.info/privkey.pem; # managed by Certbot
+            include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+            ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/test.dmtools.info/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/test.dmtools.info/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+            access_log /var/log/nginx/test.dmtools.info.access.log;
+            error_log /var/log/nginx/test.dmtools.info.error.log;
 
-    access_log /var/log/nginx/test.dmtools.info.access.log;
-    error_log /var/log/nginx/test.dmtools.info.error.log;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-
-server {
-    if ($host = test.dmtools.info) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+            location / {
+                try_files $uri $uri/ =404;
+            }
+        }
 
 
-    listen 80;
-    listen [::]:80;
-    server_name test.dmtools.info;
-    return 404; # managed by Certbot
-}
-
-server {
-    root /var/www/html;
-    server_name test.dmtools.info;
-
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/test.dmtools.info/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/test.dmtools.info/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-}
-server {
-    if ($host = test.dmtools.info) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-    listen 80;
-    listen [::]:80;
-    server_name test.dmtools.info;
-    return 404; # managed by Certbot
-
-
-}
 
 
 
